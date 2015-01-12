@@ -1,0 +1,59 @@
+/**
+\mainpage Documentation
+
+This program is for recursive download of webpages. Saved pages preserve tree structure of web.
+Filename of saved pages is usualy preserved.<br>
+Naming exceptions are:
+  - Question mark in filename is replaced with "QM" (to prevent browser from interpreting the rest of filename as parameter).
+  - When name isn't availiable, page is named "auto_index.html" (or "auto_index" if it's not html).
+    
+TODO: CSS parser to enable download of backgrounds etc.
+
+Known issues:
+  - OS/browser misrecognizes some files with crazy names (eg. Ubuntu interprets "cssloader-d74e21a00563.cssQMt=1401437366" as archive)
+  - images from CSS aren't downloaded
+  - no support for HTTPS
+
+
+\author Jakub Čech
+\date 30. 5. 2014
+
+<i>The program was created as semester project of course BI-PA2 (Programming and Algorithmics 2)
+at the Faculty of Information Technology of CTU in Prague.</i>
+
+  
+__________________________________________________________________________________________________
+Usage:
+------
+<b>cechjak2</b> [<b>-o</b> directory][<b>-d</b> number][<b>-i</b>][<b>-v</b>][<b>-p</b>]<br>
+or<br>
+<b>make run</b> (equivalent to running "<b>cechjak2</b> <b>-p</b> <b>-o</b> download") <br>
+After start, the program prompts you to insert URL of the target.
+
+Options:
+--------
+\par -o, --output url
+directory where to download pages<br> 
+<i>default: .</i>
+\par -d, --max-depth "number"
+maximal depth of downloaded pages<br> 
+<i>default: 1</i>
+\par -i, --ignore-redirects
+redirects won't be counted do depth<br> 
+<i>default: false</i>
+\par -v, --verbose 
+enable verbose mode<br> 
+<i>default: false</i>
+\par -p, --images
+always download images, regardless its depth<br> 
+<i>default: false</i>
+
+Examples:
+--------
+\par cechjak2 
+Downloads a page to the depth of 1
+\par cechjak2 -ip
+Downloads a page to the depth of 1. It won't count redirects and always downloads pictures.
+\par cechjak2 -o "/home/kuba/" -d 0
+Downloads page only a page to the folder /home/kuba/ 
+*/
